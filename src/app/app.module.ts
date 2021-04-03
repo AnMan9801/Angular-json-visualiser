@@ -10,6 +10,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { TreeDataService } from './tree-data.service';
 import { TreeVisualiserComponent } from './tree-visualiser/tree-visualiser.component';
 import { MatTreeModule } from '@angular/material/tree';
+import { TreeNodeComponent } from './tree-node/tree-node.component';
+import { TreeLeafComponent } from './tree-leaf/tree-leaf.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { MatTreeModule } from '@angular/material/tree';
     AppComponent,
     NavbarComponent,
     FileUploadComponent,
-    TreeVisualiserComponent
+    TreeVisualiserComponent,
+    TreeNodeComponent,
+    TreeLeafComponent
   ],
   imports: [
     BrowserModule,

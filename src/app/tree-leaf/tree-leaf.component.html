@@ -1,0 +1,20 @@
+
+            <!-- Optional Properties -->
+            <ng-container *ngFor="let item of node | keyvalue">
+              <ng-container *ngIf="item.key != 'children' && item.key != 'id' && item.key != 'type'">
+
+                  <ng-container *ngIf="_.isObject(item.value);then content else other_content">here is ignored
+                  </ng-container>
+                  
+                  <ng-template #content>
+                    <ng-container *ngFor="let val of item.value| keyvalue">
+                      {{val.key}} : {{val.value}} <br />
+                    </ng-container>
+                  </ng-template>
+
+                  <ng-template #other_content>
+                    {{item.key}} : {{item.value}} <br />
+                  </ng-template>
+                </ng-container>
+            </ng-container>
+            <!--  -->

@@ -1,0 +1,33 @@
+<div class="mat-tree-node">
+  <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name" class="expandButton">
+    <mat-icon class="mat-icon-rtl-mirror ">
+      {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+    </mat-icon>
+  </button>
+
+  <span class="text-dark p-2 mr-2 font-weight-bold">{{node.id}}<br>
+    {{node.type}} <br>
+  </span>
+
+  <!-- Optional Properties -->
+  <ng-container *ngFor="let item of node | keyvalue">
+    <ng-container *ngIf="item.key != 'children' && item.key != 'id' && item.key != 'type'">
+      <ng-container *ngIf="_.isObject(item.value);then content else other_content">here is ignored
+      </ng-container>
+      <ng-template #content>
+        <ng-container *ngFor="let val of item.value| keyvalue">
+          {{val.key}} : {{val.value}} <br />
+
+        </ng-container>
+
+      </ng-template>
+      <ng-template #other_content>
+        {{item.key}} : {{item.value}} <br />
+      </ng-template>
+
+
+    </ng-container>
+  </ng-container>
+  <!--  -->
+
+</div>
