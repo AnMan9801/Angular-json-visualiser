@@ -11,26 +11,37 @@ import {
 export class FileUploadComponent implements OnInit {
 
   obj;
-  fileLoaded:boolean = false;
+  fileLoaded: boolean = false;
+  fileLoadError: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}
 
   async onFileSelected(event) {
-    await this.onFileSelectedSub(event);
-    this.fileLoaded = true;
+    try {
+      await this.onFileSelectedSub(event);
+      this.fileLoaded = true;
+    } catch (error) {
+      this.fileLoadError = true;
+      console.log(error);
+    }
   }
   async onFileSelectedSub(event: any) {
+
     var that = this;
     var reader = new FileReader(); // File reader to read the file 
     // This event listener will happen when the reader has read the file
     reader.addEventListener('load', function () {
-      var result = JSON.parse(reader.result as string); // Parse the result into an object 
-      console.log(result);
+      try {
+        var result = JSON.parse(reader.result as string); // Parse the result into an object 
+        console.log(result);
 
-      that.obj = result;
-      console.log(that.obj);
-      
+        that.obj = result;
+        console.log(that.obj);
+      } catch (error) {
+        that.fileLoadError = true;
+      }
+
     });
 
     reader.readAsText(event.target.files[0]); // Read the uploaded file
