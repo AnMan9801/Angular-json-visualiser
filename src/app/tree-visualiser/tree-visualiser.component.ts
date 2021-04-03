@@ -5,6 +5,7 @@ import {
 import {NestedTreeControl} from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { data } from "../../data";
+import * as _ from 'lodash';
 /**
  * Food data with nested structure.
  * Each node has a name and an optional list of children.
@@ -23,9 +24,10 @@ interface FoodNode {
 export class TreeVisualiserComponent implements OnInit {
   treeControl = new NestedTreeControl<FoodNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<FoodNode>();
-
+  _;
   constructor() {
     this.dataSource.data = data;
+    this._ = _;
   }
 
   hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
