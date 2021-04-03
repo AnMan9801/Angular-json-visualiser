@@ -1,0 +1,13 @@
+<div class="container col-7">
+  <div class="card">
+    <div class="card-header">
+      Upload 'content.json' File
+    </div>
+    <div class="card-body">
+      <input type="file" id="fileInput" (change)="onFileSelected($event)" >
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary" [disabled]="!fileLoaded"> Visualise </button>
+    </div>
+  </div>
+</div>
