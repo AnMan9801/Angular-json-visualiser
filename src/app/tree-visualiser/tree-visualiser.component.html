@@ -1,10 +1,11 @@
-<div class="container p-2 col-8">
-  <div class="card">
+<div class="container p-4 col-8">
+  <a name="top"></a>
+  <div class="card shadow shadow-lg mt-4">
     <div class="card-header">
       <button class="btn btn-light col-4 offset-1" (click)="treeControl.expandAll()">Expand All</button>
       <button class="btn btn-light col-4 offset-2" (click)="treeControl.collapseAll()">Collapse All</button>
     </div>
-    <div class="card-body">
+    <div class="card-body overflow-auto">
 
       <!--  -->
       <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
@@ -39,4 +40,5 @@
 
     </div>
   </div>
+  <a href="#top" style="position: fixed; right : 3rem; bottom: 3rem;"><button class="btn btn-small btn-outline-dark"><mat-icon class="mat-icon-rtl-mirror">expand_less</mat-icon></button></a> 
 </div>
