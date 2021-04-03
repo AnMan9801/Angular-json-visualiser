@@ -14,7 +14,6 @@ interface FoodNode {
   children?: FoodNode[];
 }
 
-
 @Component({
   selector: 'app-tree-visualiser',
   templateUrl: './tree-visualiser.component.html',
