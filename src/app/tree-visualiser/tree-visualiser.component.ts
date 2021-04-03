@@ -28,6 +28,7 @@ export class TreeVisualiserComponent implements OnInit {
   constructor() {
     this.dataSource.data = data;
     this._ = _;
+    this.treeControl.dataNodes = this.dataSource.data;
   }
 
   hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
