@@ -12,8 +12,12 @@ import { TreeVisualiserComponent } from './tree-visualiser/tree-visualiser.compo
 import { MatTreeModule } from '@angular/material/tree';
 import { TreeNodeComponent } from './tree-node/tree-node.component';
 import { TreeLeafComponent } from './tree-leaf/tree-leaf.component';
+import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
+import Amplify from 'aws-amplify';
+import awsconfig from "../aws-exports";
 
 
+Amplify.configure(awsconfig)
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,8 @@ import { TreeLeafComponent } from './tree-leaf/tree-leaf.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatTreeModule
+    MatTreeModule,
+    AmplifyUIAngularModule
   ],
   providers: [TreeDataService],
   bootstrap: [AppComponent]
