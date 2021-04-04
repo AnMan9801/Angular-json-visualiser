@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { onAuthUIStateChange, CognitoUserInterface, AuthState } from '@aws-amplify/ui-components';
 import { TreeDataService } from './tree-data.service';
 
 @Component({
@@ -7,8 +8,21 @@ import { TreeDataService } from './tree-data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'visualiser-v0';
-  constructor(public _treeDataService : TreeDataService) {
-    
+  title = 'amplify-angular-auth';
+  user: CognitoUserInterface | undefined;
+  authState: AuthState;
+
+  constructor(private ref: ChangeDetectorRef, public _treeDataService:TreeDataService) {}
+
+  ngOnInit() {
+    onAuthUIStateChange((authState, authData) => {
+      this.authState = authState;
+      this.user = authData as CognitoUserInterface;
+      this.ref.detectChanges();
+    })
+  }
+
+  ngOnDestroy() {
+    return onAuthUIStateChange;
   }
 }
