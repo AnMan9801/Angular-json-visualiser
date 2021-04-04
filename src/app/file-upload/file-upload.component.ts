@@ -85,6 +85,7 @@ export class FileUploadComponent implements OnInit {
   async visualiseTree(event) {
     this.loading = true;
     await this.sleep(2000);
+    this._treeDataService.visualiserComponent = true;
     document.getElementById("routeMe").click();
   }
 

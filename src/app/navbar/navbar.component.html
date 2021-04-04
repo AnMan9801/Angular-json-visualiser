@@ -6,6 +6,6 @@
       Visualiser
     </div>
 
-    <button class="btn btn-secondary">Login</button>
+    <button class="btn btn-secondary" routerLink="/file-upload" [hidden] = "!this.visualiserComponent" (click) = "this.setFileUploadComponent()">Change File</button>
   </div>
 </nav>

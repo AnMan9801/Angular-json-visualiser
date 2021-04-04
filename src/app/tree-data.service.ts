@@ -14,6 +14,7 @@ export class TreeDataService {
   treeData = [{
     id: "manan"
   }];
+  visualiserComponent: boolean = false;
   constructor() { }
 
   getTreeData() {
