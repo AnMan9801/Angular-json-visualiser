@@ -2,6 +2,9 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import {
+  TreeDataService
+} from '../tree-data.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -11,36 +14,76 @@ import {
 export class FileUploadComponent implements OnInit {
 
   obj;
+  loading: boolean = false;
   fileLoaded: boolean = false;
   fileLoadError: boolean = false;
-  constructor() {}
+  constructor(private _treeDataService: TreeDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   async onFileSelected(event) {
-    await this.onFileSelectedSub(event);
-    if (!this.fileLoadError) {
-      this.fileLoaded = true;      
+
+    try {
+      let fileContents = await this.onFileSelectedSub(event.target.files[0]);
+      fileContents = JSON.parse(fileContents as string);
+      console.log(fileContents);
+      this.fileLoaded = true;
+      let arrayObj = [];
+      arrayObj.push(fileContents);
+      this._treeDataService.setTreeData(arrayObj);
+
+    } catch (e) {
+      console.warn(e.message);
+      this.fileLoadError = true;
+      this.fileLoaded = false;
     }
+    // await this.onFileSelectedSub(event.target.files[0]);
+    // if (!this.fileLoadError) {
+    //   this.fileLoaded = true;
+    //   let arrayObj = [];
+    //   arrayObj.push(this.obj);
+    //   this._treeDataService.setTreeData(arrayObj);
+    // }
   }
-  async onFileSelectedSub(event: any) {
+  onFileSelectedSub = (file) => {
     var that = this;
     var reader = new FileReader(); // File reader to read the file 
-    // This event listener will happen when the reader has read the file
-    reader.addEventListener('load', function () {
-      try {
-        that.fileLoadError = false;
-        that.fileLoaded = true;
-        var result = JSON.parse(reader.result as string); // Parse the result into an object 
-        that.obj = result;
-      } catch (error) {
+
+    that.fileLoadError = false;
+    that.fileLoaded = true;
+    return new Promise((resolve, reject) => {
+      reader.onerror = () => {
+        reader.abort();
         that.fileLoadError = true;
         that.fileLoaded = false;
-      }
-    });
+        reject(new DOMException("Problem parsing input file."));
+      };
 
-    reader.readAsText(event.target.files[0]); // Read the uploaded file
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+      reader.readAsText(file);
+    });
+    // This event listener will happen when the reader has read the file
+    // reader.addEventListener('load', function () {
+      //   try {
+      //     that.fileLoadError = false;
+      //     that.fileLoaded = true;
+    //     var result = JSON.parse(reader.result as string); // Parse the result into an object 
+    //     that.obj = result;
+    //   } catch (error) {
+    //     that.fileLoadError = true;
+    //     that.fileLoaded = false;
+    //   }
+    // });
+
+    // reader.readAsText(file); // Read the uploaded file
   }
 
+  visualiseTree(event) {
+    this.loading = true;
+  }
 
 }

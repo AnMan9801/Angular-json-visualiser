@@ -20,7 +20,10 @@
 
     </div>
     <div class="card-footer">
-      <button class="btn btn-primary" [disabled]="!fileLoaded"> Visualise </button>
+      <button class="btn btn-primary" [disabled]="!fileLoaded" routerLink="/visualiser" (click)="visualiseTree($event)"> Visualise </button> <br>
+      <div class="badge badg-primary" [hidden]="!this.loading"> 
+        Loading ...
+      </div>
     </div>
   </div>
 </div>

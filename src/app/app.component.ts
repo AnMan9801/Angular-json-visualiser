@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TreeDataService } from './tree-data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'visualiser-v0';
+  constructor(public _treeDataService : TreeDataService) {
+    
+  }
 }
