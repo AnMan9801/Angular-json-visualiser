@@ -28,7 +28,6 @@ export class FileUploadComponent implements OnInit {
     try {
       let fileContents = await this.onFileSelectedSub(event.target.files[0]);
       fileContents = JSON.parse(fileContents as string);
-      console.log(fileContents);
       this.fileLoaded = true;
       let arrayObj = [];
       arrayObj.push(fileContents);

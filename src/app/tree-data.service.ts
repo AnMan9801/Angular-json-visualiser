@@ -12,21 +12,16 @@ export interface FoodNode {
 export class TreeDataService {
 
   treeData = [{
-    id: "manan"
+    id: "Please Upload Content.JSON file."
   }];
   visualiserComponent: boolean = false;
   constructor() { }
 
   getTreeData() {
-    console.log(this.treeData);
-
     return this.treeData;
-    
   }
 
   setTreeData(data) {
-    console.log(data);
-    
     this.treeData = data;
   }
 }
