@@ -12,12 +12,9 @@ import { TreeVisualiserComponent } from './tree-visualiser/tree-visualiser.compo
 import { MatTreeModule } from '@angular/material/tree';
 import { TreeNodeComponent } from './tree-node/tree-node.component';
 import { TreeLeafComponent } from './tree-leaf/tree-leaf.component';
-import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
-import Amplify from 'aws-amplify';
-import awsconfig from "../aws-exports";
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 
 
-Amplify.configure(awsconfig)
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +22,8 @@ Amplify.configure(awsconfig)
     FileUploadComponent,
     TreeVisualiserComponent,
     TreeNodeComponent,
-    TreeLeafComponent
+    TreeLeafComponent,
+    ScrollTopComponent
   ],
   imports: [
     BrowserModule,
