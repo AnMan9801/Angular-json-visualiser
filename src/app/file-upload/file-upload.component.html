@@ -12,18 +12,28 @@
           <input type="file" accept="application/json" id="fileInput" (change)="onFileSelected($event)">
         </li>
         <li class="list-group-item" *ngIf="fileLoadError">
-          <div class="alert alert-danger" role="alert" >
+          <div class="alert alert-danger" role="alert">
             Upload Appropriate JSON file!
           </div>
         </li>
       </ul>
 
     </div>
-    <div class="card-footer">
-      <button class="btn btn-primary" [disabled]="!fileLoaded" routerLink="/visualiser" (click)="visualiseTree($event)"> Visualise </button> <br>
-      <div class="badge badg-primary" [hidden]="!this.loading"> 
-        Loading ...
+    <div class="card-footer text-center d-flex flex-column">
+      <div>
+        <button class="btn btn-primary" [disabled]="!fileLoaded" (click)="visualiseTree($event)"> Visualise </button>
       </div>
+
+      <div class="pt-5 " [hidden]="!this.loading">
+        <div class="sk-folding-cube">
+          <div class="sk-cube1 sk-cube"></div>
+          <div class="sk-cube2 sk-cube"></div>
+          <div class="sk-cube4 sk-cube"></div>
+          <div class="sk-cube3 sk-cube"></div>
+        </div>
+      </div>
+
+      <button id="routeMe" hidden routerLink="/visualiser"></button>
+
     </div>
   </div>
-</div>

@@ -82,8 +82,14 @@ export class FileUploadComponent implements OnInit {
     // reader.readAsText(file); // Read the uploaded file
   }
 
-  visualiseTree(event) {
+  async visualiseTree(event) {
     this.loading = true;
+    await this.sleep(2000);
+    document.getElementById("routeMe").click();
+  }
+
+  sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
 }

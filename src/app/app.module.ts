@@ -12,6 +12,7 @@ import { TreeVisualiserComponent } from './tree-visualiser/tree-visualiser.compo
 import { MatTreeModule } from '@angular/material/tree';
 import { TreeNodeComponent } from './tree-node/tree-node.component';
 import { TreeLeafComponent } from './tree-leaf/tree-leaf.component';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { TreeLeafComponent } from './tree-leaf/tree-leaf.component';
     FileUploadComponent,
     TreeVisualiserComponent,
     TreeNodeComponent,
-    TreeLeafComponent
+    TreeLeafComponent,
+    ScrollTopComponent
   ],
   imports: [
     BrowserModule,
