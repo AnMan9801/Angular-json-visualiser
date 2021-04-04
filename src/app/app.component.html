@@ -1,3 +1,12 @@
-<app-navbar [visualiserComponent] = "this._treeDataService.visualiserComponent"></app-navbar>
-<router-outlet></router-outlet>
+<app-navbar [visualiserComponent]="this._treeDataService.visualiserComponent"></app-navbar>
+
+<amplify-authenticator>
+  <div>
+    <amplify-sign-out></amplify-sign-out>
+  </div>
+  <!-- previous code -->
+  <router-outlet></router-outlet>
+
+</amplify-authenticator>
+
 <app-scroll-top></app-scroll-top>

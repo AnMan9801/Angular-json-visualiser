@@ -13,7 +13,12 @@ import { MatTreeModule } from '@angular/material/tree';
 import { TreeNodeComponent } from './tree-node/tree-node.component';
 import { TreeLeafComponent } from './tree-leaf/tree-leaf.component';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
+import {  AmplifyUIAngularModule } from "@aws-amplify/ui-angular";
+import 'crypto-js/lib-typedarrays';
+import Amplify from "aws-amplify";
+import awsconfig from "../aws-exports";
 
+Amplify.configure(awsconfig);
 
 @NgModule({
   declarations: [
@@ -30,7 +35,8 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatTreeModule
+    MatTreeModule,
+    AmplifyUIAngularModule,
   ],
   providers: [TreeDataService],
   bootstrap: [AppComponent]
