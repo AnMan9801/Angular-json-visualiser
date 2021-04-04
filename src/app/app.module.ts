@@ -16,7 +16,7 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 import {  AmplifyUIAngularModule } from "@aws-amplify/ui-angular";
 import 'crypto-js/lib-typedarrays';
 import Amplify, { Auth } from "aws-amplify";
-import awsconfig from "../aws-exports";
+// import awsconfig from "../aws-exports";
 
 // Amplify.configure(awsconfig);
 Auth.configure({ authenticationFlowType: 'USER_PASSWORD_AUTH', });
