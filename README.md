@@ -1,27 +1,50 @@
-# VisualiserV0
+# Tree Visualiser
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
+### Tree Visualiser made with [Angular](https://www.angular.io/)
+#### By Manan Shah
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+---------
 
-## Code scaffolding
+## Assumptions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. ### The user will be allowed only to upload JSON file.
 
-## Build
+2. ### A/c to standard practice in content files, Assumption is that every node will atleast have "id" property.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+3. ### A/c to standard practice in content files, Assumption is that every node(except leaf) will have their children nodes in array at "children" property.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+----------
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Build and Run
 
-## Further help
+### Prerequisites -
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Latest version of Chrome or Firefox
+   - suggested Chrome(87+) Firefox(83+)
+
+### Run Software
+
+1. Clone Repo
+2. Change Directory
+   - `$> cd Angular-json-visualiser/`
+3. Install Dependencies
+   - `$> npm install`
+4. Serve app
+   - `$> ng serve`
+5. Go to http://localhost:4200/
+
+----------
+
+### Resources to dive in to [angular](https://www.pixijs.com) :
+
+- YouTube Playlists
+  - [Angular Tutorial For Beginners](https://youtube.com/playlist?list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ) by Codevolution
+
+  - [Angular Material Tutorial](https://youtube.com/playlist?list=PLC3y8-rFHvwilEuCqFGTL5Gt5U6deIrsU) by Codevolution
+
+- [Documentation](https://angular.io/docs) for Angular
+- [Documentation](https://material.angular.io/) for Angular Material
+- [GOOGLE](https://www.google.com) for Queries :)
